@@ -45,7 +45,7 @@ const GameBoard = (() => {
 })();
 
 /**
- * Display-controller module
+ * Display-controller module (UI-handler)
  *
  * @returns {function} - updateAndRenderGameBoard
  * @returns {function} - displayWinner
@@ -118,7 +118,6 @@ const DisplayController = (() => {
       winnerDiv.removeEventListener("click", resetGameAndRemoveListener);
     };
 
-    // Add the event listener to the winnerDiv
     winnerDiv.addEventListener("click", resetGameAndRemoveListener);
   };
 
