@@ -3,7 +3,6 @@
 const gameContainer = document.getElementById("game");
 let roundStarted = false;
 let hardMode = false;
-let currentPlayer = "P";
 
 /**
  * GameBoard module
@@ -46,7 +45,7 @@ const GameBoard = (() => {
 })();
 
 /**
- * Display-controller module
+ * Display-controller module (UI-handler)
  *
  * @returns {function} - updateAndRenderGameBoard
  * @returns {function} - displayWinner
@@ -117,7 +116,6 @@ const DisplayController = (() => {
       winnerDiv.removeEventListener("click", resetGameAndRemoveListener);
     };
 
-    // Add the event listener to the winnerDiv
     winnerDiv.addEventListener("click", resetGameAndRemoveListener);
   };
 
@@ -175,7 +173,6 @@ const GameController = (() => {
   };
 
   const resetGame = () => {
-    currentPlayer = "P";
     GameBoard.resetBoard();
     roundStarted = false;
     DisplayController.updateAndRenderGameBoard();
@@ -214,9 +211,7 @@ const GameController = (() => {
     playerIndex = e.target.dataset.index;
 
     if (!Player.hasDelay() && e.target.innerText === "") {
-      currentPlayer = "P";
       GameBoard.setBoard(playerIndex, Player.getMark());
-      currentPlayer = "C";
       Computer.move();
     } else {
       return;
@@ -295,7 +290,6 @@ const Computer = (() => {
 
   const computerStartFirst = () => {
     if (!roundStarted) {
-      currentPlayer = "C";
       roundStarted = true;
       Player.setMark("O");
       setMark("X");
