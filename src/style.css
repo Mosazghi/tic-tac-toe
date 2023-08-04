@@ -1,0 +1,7 @@
+.cell:nth-child(3n) {
+  border-right: none;
+}
+
+.cell:nth-child(6) ~ .cell {
+  border-bottom: none;
+}

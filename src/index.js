@@ -59,20 +59,18 @@ const DisplayController = (() => {
     cell.innerText = GameBoard.getBoard()[index];
     cell.classList.add(
       "cell",
-      "text-6xl",
+      "text-8xl",
       `${cell.innerText === "X" ? "text-green-300" : "text-blue-300"}`,
       "flex",
       "justify-center",
+      "border-r-4",
+      "border-b-4",
       "items-center",
       "transition-all",
-      "duration-1000",
-      "border",
       "font-bold",
       "border-slate-900",
       "hover:bg-slate-300",
       "bg-slate-200",
-      "h-full",
-      "w-full",
       "cursor-pointer"
     );
 
